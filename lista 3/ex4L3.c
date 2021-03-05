@@ -3,7 +3,7 @@
 
 int main(){
    int i;
-   float nota[2],maior,menor;
+   float nota[3],maior,menor;
    char name[3];
     printf("Nota da Turma\n");
     for(i=1;i<4;i++){
@@ -12,6 +12,7 @@ int main(){
         setbuf(stdin, NULL);
         scanf("%c", &name[j]);
         printf("Informe a Nota: ");
+        setbuf(stdin, NULL);
         scanf("%f", &nota[j]);j++;   
     }
     maior = nota[0];
@@ -19,10 +20,7 @@ int main(){
     for(i=0;i<3;i++){
     if(maior<nota[i])maior=nota[i];
     }
-    for(i=0;i<3;i++){
-    if(menor>nota[i])menor=nota[i];
-    }
-    printf("maior %.1f menor %.1f", maior, menor);
+    printf("maior %.1f\n", maior);
     
     return 0;
 }
