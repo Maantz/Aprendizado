@@ -11,7 +11,6 @@ int main(){
         if(letra2 == letra){
             printf("ACERTOU!");break;
         }
-        
         else if(i>2){
             i--;
             printf("Errado! Voce tem mais %d chances\n", i);
@@ -23,9 +22,6 @@ int main(){
             i--;
             printf("Acabaram suas chances.A letra correta e %c\n", letra);
         }
-        
     }
-
     return 0;
-
 }
