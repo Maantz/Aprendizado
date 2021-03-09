@@ -8,14 +8,17 @@ int main(){
     printf("Entre com o valor: ");
     scanf("%d", &p);
     
-    while(i<=p/2){
+    while(i<p){
         if(p%i==0){
             cont++;
-            break;
+            break;     
         }
         i++;
     }
     
+    if(p==0||p==1){
+        cont++;
+    }
     if(cont == 0){
         printf("O numero %d e primo\n", p);
     }else{
