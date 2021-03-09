@@ -6,15 +6,15 @@ int main(){
     double result, base, exp;
     while(bits<=4){
         base=bits;
-        result=pow(base,2);
-        printf("Com %d bits e possivel enderecar %.0f posicoes de memoria.\n", bits, result);bits=bits*2;
+        result= pow(base,2);
+        printf("Com %d bits e possivel enderecar %.14lf posicoes de memoria.\n", bits, result);bits=bits*2;
         exp=base;
     }
     bits=8;
     while(bits<=128){ 
         base=bits;
-        result=pow(2,base);
-        printf("Com %d bits e possivel enderecar %g posicoes de memoria.\n", bits, result);bits=bits*2;
+        result= pow(2,base);
+        printf("Com %d bits e possivel enderecar %.14g posicoes de memoria.\n", bits, result);bits=bits*2;
         exp=base;
     }
 
