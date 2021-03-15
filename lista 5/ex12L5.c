@@ -24,15 +24,15 @@ int main(){
     if(verde>azul&&verde>amarela&&verde>vermelha){
     printf("<<Maior probabilidade\n");
     }
-    printf("Azul: %.1f%%", azul);
+    printf("\nAzul: %.1f%%", azul);
     if(azul>verde&&azul>amarela&&azul>vermelha){
     printf("<<Maior probabilidade\n");
     }
-    printf("Amarela: %.1f%%", amarela);
+    printf("\nAmarela: %.1f%%", amarela);
     if(amarela>verde&&amarela>azul&&amarela>vermelha){
     printf("<<Maior probabilidade\n");
     }
-    printf("Vermelha: %.1f%%", vermelha);
+    printf("\nVermelha: %.1f%%", vermelha);
      if(vermelha>verde&&vermelha>azul&&vermelha>amarela){
     printf("<<Maior probabilidade\n");
     }
