@@ -31,7 +31,7 @@ int main(){
     }
     
 
-    printf("%c tem a maior nota %.1f e %c tem a pior nota  %.1f\n",nMaior, maior,nMenor, menor);
+    printf("%c. tem a maior nota %.1f e %c. tem a pior nota  %.1f\n",nMaior, maior,nMenor, menor);
     
     return 0;
 }
