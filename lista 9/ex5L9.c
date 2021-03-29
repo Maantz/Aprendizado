@@ -25,10 +25,10 @@ void cadastro_(aluno *p, int i){
     scanf("%f", &p[i].p3);
     printf("Digite a quantidade de Faltas:\n");
     setbuf(stdin,NULL);
-    scanf("%f", &p[i].faltas);
+    scanf("%d", &p[i].faltas);
     return;
 }
-maior_MediaG(aluno *p){
+void maior_MediaG(aluno *p){
     float maior, media[3];
     int cont;
     for(int k=0;k<3;k++){
@@ -44,7 +44,7 @@ maior_MediaG(aluno *p){
     printf("O aluno %s, obteve a maior nota na Media Geral, valor = %.1f\n", p[cont].nome, maior);
     return;
 }
-maior_p1(aluno *p){
+void maior_p1(aluno *p){
     float maior;
     int cont; 
     maior = p[0].p1;
@@ -57,7 +57,7 @@ maior_p1(aluno *p){
     printf("O aluno %s, obteve a maior nota na P1, valor = %.1f\n", p[cont].nome, maior);
     return;
 }
-menor_MediaG(aluno *p){
+void menor_MediaG(aluno *p){
     float menor, media[3];
     int cont;
     for(int k=0;k<3;k++){
@@ -73,8 +73,47 @@ menor_MediaG(aluno *p){
     printf("O aluno %s, obteve a maior nota na Media Geral, valor = %.1f\n", p[cont].nome, menor);
     return;
 }
+void situacao_(aluno *p){
+    char matricula2[12];
+    int cont,test=0;
+    float presenca,notaf,faltas1;
+    printf("Matricula do aluno: ");
+    setbuf(stdin,NULL);
+    fgets(matricula2,12,stdin);
+    for(int i=0;i<3;i++){
+        if(strcmpi(matricula2,p[i].matricula)==0){
+            cont=i;
+            break;
+        }
+            test+=i;
+    }
+    if(strcmpi(matricula2,p[test].matricula)==1){
+        printf("ERROR: Matricula nao encontrada!\n");
+        return menu();
+    }
+   
+    faltas1=p[cont].faltas;
+    presenca = ((72 - faltas1 )/72);
+    notaf= (p[cont].p1+p[cont].p2+p[cont].p3);
+    //printf("%s\n %.2f\n%d\n%.0f", p[cont].nome, presenca,p[cont].faltas,notaf);
+
+    if((presenca>=0.75)&& (notaf>=60)){
+        printf("APROVADO!\n");
+        return;
+    }else if((presenca>=0.75)&&(notaf<60)){
+        printf("Reprovado por nota\n");
+        return;
+    }else if((presenca<0.75)&&(notaf>=60)){
+        printf("Reprovado por falta\n");
+        return;
+    }else if((presenca<0.75)&&(notaf<60)){
+        printf("Reprovado por falta\n");
+        return;
+    }
+}
 
 void menu(){
+    setbuf(stdin,NULL);
     aluno al[3];
     int i=0;
     char opcao;
@@ -84,7 +123,8 @@ void menu(){
         printf("-a)Cadastrar alunos(maximo 3).\n-b)Maior nota da P1.\n");
         printf("-c)Maior media geral.\n-d)Menor media geral.\n-e)Situacao final.\n-s)Sair do programa.");
         printf("\n-- ?");
-        scanf(" %c", &opcao);
+        setbuf(stdin,NULL);
+        scanf("%c", &opcao);
         switch (opcao)
         {
         case 'a':
@@ -98,6 +138,10 @@ void menu(){
                 break;
         case 'd':
             menor_MediaG(al);
+            break;
+        case 'e':
+            situacao_(al);
+            break;
         case 's':
             return 0;       
         default:
