@@ -44,17 +44,19 @@ modulos_(complexo*comp){
 
 
 int main(void){
-    complexo comp[3];
+    complexo comp;
+    void *p;
+    p = &comp;
     
     printf("=========================\n");
     printf("     Numeros Complexos   \n");
     printf("=========================\n\n");
     
-    leitura_(comp);
-    soma_(comp);
-    subtrai_(comp);
-    multiplica_(comp);
-    modulos_(comp);
+    leitura_(p);
+    soma_(p);
+    subtrai_(p);
+    multiplica_(p);
+    modulos_(p);
     
     //printf("R de Z= %.1f\nI de Z= %.1f\nR de W= %.1f\nI de W= %.1f\n", comp->real[0],comp->imaginario[0],comp->real[1],comp->imaginario[1] ); <- Usei pra verificar se estava salvando corretamente no vetor
     
