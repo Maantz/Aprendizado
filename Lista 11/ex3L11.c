@@ -1,29 +1,26 @@
 #include <stdio.h>
 
-typedef struct pontos{
-    int pontoX, pontoY;
-}ponto;
-
 int main(){
-    ponto *vet;
-    int n;
-    printf("Quantos pontos deseja digitar ?\n");
+    int *p, n, par=0, impar=0;
+    printf("Quantos numeros desejar alocar ?\n");
     scanf("%d", &n);
-    vet = (int*)calloc(n,sizeof(int));
-    for(int i=0; i<n; i++){
-        printf("Vetor %d\n", i+1);
-        printf("Entre com a coordenada X do ponto %d: ", i+1);
-        scanf("%d", &vet[i].pontoX);
-        printf("Entre com a coordenada Y do  ponto %d: ", i+1);
-        scanf("%d", &vet[i].pontoY);
-        printf("===================\n");
-    }
-    printf("Pontos Digitados:");
+    p = (int *)calloc(n,sizeof(int));
     for(int i=0;i<n;i++){
-        printf("(%d,%d);", vet[i].pontoX, vet[i].pontoY);
+        printf("Informe um numero:", i+1);
+        scanf("%d", &p[i]);
     }
+    for(int i=0;i<5;i++){
+        if(p[i]%2==0){
+            par ++;
+        }
+        else{
+            impar ++;
+        }
+    }
+    printf("%d sao pares\n", par);
+    printf("%d sao impares\n", impar);
+    printf("\n");
+    free(p);
 
-    free(vet);
     return 0;
-
 }
